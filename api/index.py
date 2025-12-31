@@ -14,7 +14,6 @@ from pydantic import BaseModel
 from dotenv import load_dotenv
 
 # ✅ ADD THIS IMPORT (for Lambda)
-from mangum import Mangum
 
 
 # Load environment variables from .env file (local dev only)
@@ -23,6 +22,7 @@ load_dotenv()
 # -------------------
 # App setup
 # -------------------
+
 app = FastAPI()
 security = HTTPBearer()
 @app.get("/")
@@ -260,4 +260,4 @@ def whiteboard_session(
 # =====================================================
 # ✅ REQUIRED FOR AWS LAMBDA (DO NOT REMOVE)
 # =====================================================
-handler = Mangum(app)
+
